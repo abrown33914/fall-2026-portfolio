@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Allison Brown · Software Engineer</title>
+    <meta
+      name="description"
+      content="Allison Brown is a software engineering student at Florida Gulf Coast University (Class of 2027) who builds tools, runs hackathons, and leads the teams that ship."
+    />
+    <meta name="theme-color" content="#121212" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://allisonbrown.dev/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://allisonbrown.dev/" />
+    <meta property="og:title" content="Allison Brown · Software Engineer" />
+    <meta
+      property="og:description"
+      content="Software engineer who builds the tools, runs the hackathons, and leads the teams that ship."
+    />
+    <meta property="og:image" content="https://allisonbrown.dev/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Hide reveal targets only once we know JS runs and motion is allowed (no flash, no-JS safe). -->
+    <script>
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion')
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
