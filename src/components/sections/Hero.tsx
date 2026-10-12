@@ -47,7 +47,7 @@ function RotatingBadge() {
       ref={ref}
       href="#experience"
       aria-label="Scroll to experience"
-      className="absolute top-[156px] left-[4px] block size-[108px] rounded-full bg-accent shadow-[0_14px_30px_rgba(0,0,0,.35)] will-change-transform md:top-[62%] md:left-[-54px] md:size-[128px]"
+      className="absolute top-[122px] left-[4px] block size-[96px] rounded-full bg-accent shadow-[0_14px_30px_rgba(0,0,0,.35)] will-change-transform md:top-[62%] md:left-[-54px] md:size-[128px]"
     >
       <svg viewBox="0 0 100 100" className="block size-full" aria-hidden="true">
         <defs>
@@ -102,10 +102,29 @@ function Floaters() {
           ref={(el) => {
             items.current[i] = el
           }}
-          className="absolute leading-none font-extrabold tracking-[-0.04em] whitespace-nowrap text-text opacity-[.07] before:content-[attr(data-text)]"
-          data-text={f.t}
-          style={{ left: f.x, top: f.y, fontSize: f.size, transform: `rotate(${f.rot}deg)` }}
-        />
+          className={`absolute top-(--my) left-(--mx) h-(--mh) opacity-[.07] md:top-(--y) md:left-(--x) md:h-(--h) ${f.mobile ? '' : 'max-md:hidden'}`}
+          style={{
+            '--x': f.x,
+            '--y': f.y,
+            '--mx': 'mx' in f ? f.mx : f.x,
+            '--my': 'my' in f ? f.my : f.y,
+            '--h': f.height,
+            '--mh': 'mh' in f ? f.mh : f.height,
+            aspectRatio: `${f.w} / ${f.h}`,
+            transform: `rotate(${f.rot}deg)`,
+          } as CSSProperties}
+        >
+          <img
+            src={f.src}
+            alt=""
+            width={f.w}
+            height={f.h}
+            loading={i < 2 ? 'eager' : 'lazy'}
+            fetchPriority={i < 2 ? 'high' : 'auto'}
+            decoding="async"
+            className="size-full object-contain [filter:brightness(0)_invert(.9)_sepia(.18)]"
+          />
+        </span>
       ))}
     </div>
   )

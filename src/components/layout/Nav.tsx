@@ -6,7 +6,7 @@ import { useActiveSection, useNavHidden } from '../../hooks/useNav'
 import { cx } from '../../lib/accent'
 
 const pill =
-  'fixed left-1/2 z-10 flex items-center rounded-full border border-text/8 p-[6px] backdrop-blur-[20px] backdrop-saturate-[1.3] transition-transform duration-[450ms] ease-[var(--ease-out-soft)]'
+  'fixed left-1/2 z-10 flex items-center rounded-full border border-text/8 p-[6px] transition-transform duration-[450ms] ease-[var(--ease-out-soft)]'
 
 const resumeBtn =
   'press flex items-center whitespace-nowrap rounded-full bg-accent px-[18px] text-[14px] font-[650] tracking-[-0.01em] text-bg shadow-key active:scale-[.94]'
@@ -19,7 +19,7 @@ function TopNav({ hidden, active }: { hidden: boolean; active: string | null }) 
   return (
     <nav
       aria-label="Primary"
-      className={cx(pill, 'top-[18px] hidden gap-1 bg-[rgba(32,32,34,.72)] shadow-[0_12px_28px_rgba(0,0,0,.4)] md:flex')}
+      className={cx(pill, 'top-[18px] hidden gap-1 bg-[rgba(32,32,34,.92)] shadow-[0_12px_28px_rgba(0,0,0,.4)] md:flex')}
       style={{ transform: `translateX(-50%) translateY(${hidden ? '-110px' : '0'})` }}
     >
       <a href="#top" aria-label="Back to top" className={cx(abBtn, 'mr-1 size-[42px] text-[13px]')}>

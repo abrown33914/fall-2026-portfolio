@@ -12,7 +12,7 @@ export const experience: Experience[] = [
     role: 'Team Lead',
     org: 'EagleX Scoring System, Senior Project',
     dates: 'Aug 2026 – Present',
-    desc: 'Lead a four-person team extending a live React scoring app used at FGCU’s EagleX event, and serve as the primary contact for two organizer sponsors.',
+    desc: 'Lead a four-person development team expanding a React-based scoring application for FGCU’s EagleX competition, collaborating with stakeholders to define requirements, coordinate development, and deliver new features.',
   },
   {
     role: 'Student Intern',

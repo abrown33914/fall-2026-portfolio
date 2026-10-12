@@ -9,6 +9,7 @@ export function Experience() {
   const list = useRef<HTMLOListElement>(null)
   const fill = useRef<HTMLDivElement>(null)
   const reduced = useReducedMotion()
+  const lastP = useRef(-1)
 
   // Accent line grows to 62% of the viewport; dots fill as the line passes them.
   useScrollFrame(({ y, vh }) => {
@@ -17,7 +18,12 @@ export function Experience() {
     if (!tl || !bar) return
     const h = tl.offsetHeight - 16
     const line = reduced ? Infinity : y + vh * 0.62 - docTop(tl)
-    bar.style.height = `${Math.max(0, Math.min(h, line))}px`
+    // scaleY on a full-height bar: compositor-only, unlike animating `height` (layout every frame).
+    const p = h > 0 ? Math.max(0, Math.min(1, line / h)) : 0
+    if (p !== lastP.current) {
+      lastP.current = p
+      bar.style.transform = `scaleY(${p.toFixed(4)})`
+    }
     tl.querySelectorAll<HTMLElement>('[data-dot]').forEach((dot) => {
       const item = dot.parentElement as HTMLElement
       dot.toggleAttribute('data-on', line > item.offsetTop + 8)
@@ -28,7 +34,7 @@ export function Experience() {
     <SectionShell id="experience" title="Experience">
       <div className="relative max-w-[720px] pl-10">
         <div aria-hidden="true" className="absolute top-2 bottom-2 left-[11px] w-[2px] rounded-sm bg-hairline" />
-        <div ref={fill} aria-hidden="true" className="absolute top-2 left-[11px] h-0 w-[2px] rounded-sm bg-accent" />
+        <div ref={fill} aria-hidden="true" className="absolute top-2 bottom-2 left-[11px] w-[2px] origin-top scale-y-0 rounded-sm bg-accent will-change-transform" />
         <ol ref={list} className="relative m-0 list-none p-0">
           {experience.map((x) => (
             <li key={x.role + x.org} className="relative pb-[38px] last:pb-2">

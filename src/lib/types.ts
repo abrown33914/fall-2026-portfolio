@@ -52,6 +52,6 @@ export type CommunityItem = {
   desc: string
   photoLabel: string
   color: string
-  /** Optional event photo in /public/images/community */
+  /** Optional event photo in /public/community */
   image?: string
 }

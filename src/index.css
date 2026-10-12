@@ -34,8 +34,15 @@
   --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+@property --accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #b4c3f2;
+}
+
 :root {
-  /* Overwritten every scroll frame by useAccent (periwinkle → rose → lilac → sage → mint). */
+  transition: --accent 0.8s ease-out;
+  /* Rewritten when scrolling pauses by AccentDriver (periwinkle → rose → lilac → sage → mint). */
   --accent: #b4c3f2;
   --gutter: clamp(22px, 5vw, 64px);
   color-scheme: dark;
@@ -67,6 +74,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
+}
+
+@keyframes ambient-drift {
+  from { transform: translate3d(-1.5%, -1%, 0); }
+  to { transform: translate3d(1.5%, 1.2%, 0); }
+}
+.ambient-drift {
+  animation: ambient-drift 28s ease-in-out infinite alternate;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ambient-drift { animation: none; }
 }
 
 * {

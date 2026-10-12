@@ -5,11 +5,8 @@ export function Education() {
   return (
     <SectionShell id="education" title="Education" stickyTitle={false}>
       <div className="flex items-start gap-[18px]">
-        <div
-          aria-hidden="true"
-          className="grid size-16 flex-none place-items-center rounded-[18px] bg-text/7 text-[13px] font-extrabold text-accent"
-        >
-          FGCU
+        <div aria-hidden="true" className="grid size-16 flex-none place-items-center rounded-[18px] bg-text/7">
+          <img src="/logos/trim/eagle.png" alt="" width={400} height={286} className="w-[44px] opacity-90" />
         </div>
         <div className="min-w-0">
           <h3 className="m-0 text-[clamp(22px,2.2vw,30px)] leading-[1.15] font-bold tracking-[-0.03em]">

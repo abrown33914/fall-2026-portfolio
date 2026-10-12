@@ -2,27 +2,31 @@ import type { Stat } from '../lib/types'
 
 export const site = {
   firstName: 'Allison',
-  lastName: 'Brown.',
+  lastName: 'Brown',
   fullName: 'Allison Brown',
-  lead: 'Software engineer who builds the tools, runs the hackathons, and leads the teams that ship.',
-  badge: 'SOFTWARE ENGINEER · CLASS OF 2027 ·',
+  lead: 'Software engineering student with experience in fullstack development, technical leadership, and collaborative projects.',
+  badge: 'SOFTWARE ENGINEERING · CLASS OF 2027 ·',
   email: 'abrown33914@gmail.com',
   linkedin: { label: 'linkedin.com/in/abrown27', href: 'https://www.linkedin.com/in/abrown27' },
   github: { label: 'github.com/abrown33914', href: 'https://github.com/abrown33914' },
   /** Drop your one-page résumé at public/AllisonBrown_Resume.pdf */
-  resume: '/AllisonBrown_Resume.pdf',
+  resume: '/AllisonBrown.pdf',
   /** Hero portrait in /public/images; leave undefined to show the styled placeholder. */
-  portrait: undefined as string | undefined,
+  portrait: '/images/allison.jpg',
 } as const
 
-/** Names that drift behind the hero at ~7% opacity. Plain text only (no agency seals). */
+/**
+ * Logos that drift behind the hero at ~7% opacity (decorative, single-tone).
+ * Files are trimmed copies in /public/logos/trim; w/h are their pixel size (sets the aspect ratio).
+ * `height` scales with the viewport; `mobile: false` hides the logo below 768px (the mobile layout); `mx`/`my`/`mh` override x/y/height there.
+ */
 export const floaters = [
-  { t: 'HSI', x: '-2%', y: '14%', size: 'clamp(64px,7vw,110px)', rot: -8, p: 0 },
-  { t: 'EagleHacks', x: '38%', y: '6%', size: 'clamp(30px,3vw,48px)', rot: 6, p: 1.4 },
-  { t: 'FGCU', x: '62%', y: '58%', size: 'clamp(52px,5vw,84px)', rot: -5, p: 2.6 },
-  { t: 'INIT', x: '3%', y: '66%', size: 'clamp(40px,4vw,64px)', rot: 9, p: 3.3 },
-  { t: 'CSSEC', x: '50%', y: '84%', size: 'clamp(34px,3.4vw,54px)', rot: -10, p: 4.1 },
-  { t: 'Whitaker', x: '78%', y: '18%', size: 'clamp(44px,4vw,66px)', rot: 4, p: 5.2 },
+  { t: 'HSI', src: '/logos/trim/dhs.png', w: 362, h: 360, height: 'clamp(56px,7vw,96px)', x: '2%', y: '3%', rot: -8, p: 0, mobile: true, mh: '48px', mx: '3%', my: '15%' },
+  { t: 'EagleHacks', src: '/logos/trim/eaglehacks.png', w: 220, h: 360, height: 'clamp(32px,3vw,44px)', x: '90%', y: '40%', rot: 6, p: 1.4, mobile: false },
+  { t: 'Boombox', src: '/logos/trim/boombox.png', w: 1000, h: 191, height: 'clamp(28px,3.6vw,52px)', x: '24%', y: '92%', rot: -5, p: 2.6, mobile: false },
+  { t: 'INIT', src: '/logos/trim/init.png', w: 974, h: 360, height: 'clamp(32px,4vw,56px)', x: '44%', y: '70%', rot: 9, p: 3.3, mobile: true, mh: '30px', mx: '70%', my: '62%' },
+  { t: 'CSSEC', src: '/logos/trim/cssec.png', w: 420, h: 360, height: 'clamp(40px,3.4vw,48px)', x: '50%', y: '84%', rot: -10, p: 4.1, mobile: true, mh: '40px', mx: '82%', my: '88%' },
+  { t: 'Whitaker', src: '/logos/trim/fgcu.png', w: 1000, h: 120, height: 'clamp(28px,3.3vw,48px)', x: '60%', y: '11.5%', rot: 4, p: 5.2, mobile: true, mh: '16px', mx: '24%', my: '4%' },
 ]
 
 export const stats: Stat[] = [
@@ -39,15 +43,16 @@ export const about = {
     'Outside of class I started EagleHacks and INIT FGCU. I’m drawn to mission-driven work in security and forensics, and to the coordination side of engineering: keeping people, timelines, and systems moving in the same direction.',
   ],
   photos: [
-    { label: 'Photo of you', color: '#4B1E23', image: undefined as string | undefined },
-    { label: 'Candid', color: '#6B6F4E', image: undefined as string | undefined },
+    { label: 'Photo of you', color: '#4B1E23', image: '/images/headshot.jpg' },
+    { label: 'Candid', color: '#6B6F4E', image: '/images/candid.jpg' },
+    { label: 'Tabling', color: '#2E3A4B', image: '/images/tabling.jpg' },
   ],
 }
 
 export const education = {
   degree: 'B.S. Software Engineering',
   school: 'Florida Gulf Coast University',
-  detail: 'Whitaker College of Engineering · Expected May 2027',
+  detail: 'Minor in Marketing · Whitaker College of Engineering · Expected May 2027',
   honors: ['GPA 3.76', 'Dean’s List 4×', 'President’s List 2×', 'First-generation student'],
   previous: 'A.A., Honors Graduate · Florida SouthWestern State College',
 }

@@ -51,7 +51,7 @@ export function Contact() {
       stickyTitle={false}
       gapMobile="gap-7"
       className="pb-10 md:pb-[120px]"
-      intro={<p className="mt-3 mb-0 text-[16.5px] leading-normal text-text-3">Email is the fastest way to reach me.</p>}
+      intro={<p className="mt-3 mb-0 text-[16.5px] leading-normal text-text-3">Seeking internships and new graduate opportunities beginning Summer 2027<br />I’d love to connect!</p>}
     >
       <div className="flex max-w-[620px] flex-col gap-[10px] md:mt-[6px]">
         <button

@@ -126,38 +126,6 @@ export const projects: Project[] = [
     cover: { color: '#3E5550', ink: '#E9EFEC', ring: 150, rx: -20, ry: 60, glow: '#3E6A60' },
   },
   {
-    slug: 'veteran-needs',
-    title: 'Veteran Needs Assessment',
-    kicker: 'Service learning',
-    period: 'Jan – Mar 2026',
-    summary:
-      'A data system built with Community Bridge of Southwest Florida that tracks veteran needs and gives nonprofit partners impact data for grant reporting.',
-    highlights: [
-      'SQL database of 250+ records with visual impact reports for stakeholders',
-      'Secure data-sharing workflows for partner organizations',
-      'Requirements gathered directly with nonprofit staff and program managers',
-    ],
-    role: 'Developer · service-learning team',
-    tech: ['SQL', 'Full-stack web', 'Secure data workflows'],
-    cover: { color: '#2A3A5C', ink: '#E6E0D6', ring: 200, rx: 70, ry: 30, glow: '#3B5A9A' },
-  },
-  {
-    slug: 'small-business-site',
-    title: 'Small Business Website',
-    kicker: 'Client work',
-    period: '2026 – present',
-    status: 'In progress',
-    summary:
-      'A responsive website redesign for a small-business client. I’m the sole developer, from the first consultation through mockups, development, testing, and deployment.',
-    highlights: [
-      'Figma mockups iterated across multiple client review cycles',
-      'Responsive, accessible layouts tuned for performance and cross-browser support',
-    ],
-    role: 'Sole developer',
-    tech: ['HTML', 'CSS', 'JavaScript', 'Figma'],
-    cover: { color: '#A8D4C6', ink: '#121212', ring: 180, rx: -50, ry: -50, glow: '#3E6A60' },
-  },
-  {
     slug: 'linux-dns-web',
     title: 'Linux DNS & Web Server',
     kicker: 'Infrastructure',
