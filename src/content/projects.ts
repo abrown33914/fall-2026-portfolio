@@ -157,7 +157,6 @@ export const projects: Project[] = [
     ],
     role: 'Model training & evaluation',
     tech: ['Python', 'NumPy', 'scikit-learn'],
-    link: 'https://bit.ly/obesity-classification-study',
     cover: { color: '#5A2430', ink: '#F0E6E2', ring: 160, rx: 90, ry: 50, glow: '#7A2A36' },
   },
 ]
