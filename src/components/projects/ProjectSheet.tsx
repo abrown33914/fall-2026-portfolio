@@ -72,7 +72,7 @@ export function ProjectSheet({ projects, index, open, wide, onClose, onStep }: P
       <div
         aria-hidden="true"
         onClick={onClose}
-        className="fixed inset-0 z-30 bg-[rgba(5,6,8,.62)] backdrop-blur-[4px] transition-opacity duration-[400ms]"
+        className="fill-lv z-30 bg-[rgba(5,6,8,.62)] backdrop-blur-[4px] transition-opacity duration-[400ms]"
         style={{ opacity: open ? 1 : 0, pointerEvents: open ? 'auto' : 'none' }}
       />
       <div
@@ -105,7 +105,7 @@ export function ProjectSheet({ projects, index, open, wide, onClose, onStep }: P
             type="button"
             onClick={onClose}
             aria-label="Close project details"
-            className="mt-[2px] grid size-11 cursor-pointer place-items-center self-end rounded-full bg-fill text-[15px] text-text transition-[transform,filter] duration-[250ms] ease-[var(--ease-spring)] hover:rotate-90 hover:brightness-125 active:scale-90"
+            className="mt-[2px] grid size-11 cursor-pointer place-items-center self-end rounded-full bg-fill text-[15px] text-text transition-[transform,filter] duration-[250ms] ease-[var(--ease-spring)] hover:rotate-90 hover:brightness-125 active:scale-[.97]"
           >
             <span aria-hidden="true">✕</span>
           </button>
@@ -176,7 +176,7 @@ export function ProjectSheet({ projects, index, open, wide, onClose, onStep }: P
               href={p.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="press mt-[26px] flex h-14 items-center justify-between gap-3 rounded-full bg-accent px-6 text-[15px] font-[650] tracking-[-0.01em] text-bg shadow-key active:scale-[.97]"
+              className="press mt-[26px] flex h-14 items-center justify-between gap-3 rounded-full bg-accent px-6 text-[15px] font-[650] tracking-[-0.01em] text-bg shadow-key"
             >
               <span>View project</span>
               <span className="truncate text-[13px] font-semibold">
@@ -194,7 +194,7 @@ export function ProjectSheet({ projects, index, open, wide, onClose, onStep }: P
                 key={b.dir}
                 type="button"
                 onClick={() => onStep(b.dir)}
-                className="press h-[52px] flex-1 cursor-pointer rounded-full bg-text/7 text-[14px] font-semibold text-text shadow-[inset_0_0_0_1px_rgba(230,224,214,.08)] active:scale-[.96]"
+                className="press h-[52px] flex-1 cursor-pointer rounded-full bg-text/7 text-[14px] font-semibold text-text shadow-[inset_0_0_0_1px_rgba(230,224,214,.08)]"
               >
                 {b.label}
               </button>

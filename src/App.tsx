@@ -1,4 +1,4 @@
-import { AccentDriver, Background } from './components/layout/Background'
+import { AccentDriver } from './components/layout/Background'
 import { Nav } from './components/layout/Nav'
 import { About } from './components/sections/About'
 import { Community } from './components/sections/Community'
@@ -22,7 +22,6 @@ export default function App() {
         Skip to content
       </a>
       <AccentDriver />
-      <Background />
 
       <main className="relative z-[1]">
         <Hero />

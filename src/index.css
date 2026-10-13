@@ -30,7 +30,8 @@
   --color-slate: #3e5550;
   --color-bone: #e6e0d6;
 
-  --ease-spring: cubic-bezier(0.3, 1.4, 0.5, 1);
+  /* Smooth ease-out, no overshoot (iOS-like): fast start, long soft settle. */
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -76,17 +77,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-@keyframes ambient-drift {
-  from { transform: translate3d(-1.5%, -1%, 0); }
-  to { transform: translate3d(1.5%, 1.2%, 0); }
-}
-.ambient-drift {
-  animation: ambient-drift 28s ease-in-out infinite alternate;
-}
-@media (prefers-reduced-motion: reduce) {
-  .ambient-drift { animation: none; }
-}
-
 * {
   -webkit-tap-highlight-color: transparent;
 }
@@ -103,11 +93,22 @@ body {
 
 /* ───────────────────────── Reusable utilities ───────────────────────── */
 
-/* Page container: 1240px max with fluid side gutters */
+/*
+ * Full-screen fixed layer sized to the LARGE viewport (iOS Safari): `inset: 0` stops at the top of
+ * the URL bar, which left a bare strip under the glows whenever the bar was showing.
+ */
+@utility fill-lv {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 100vh;
+  height: 100lvh;
+}
+
+/* Page container: 1240px max with fluid side gutters (clear of the notch in landscape) */
 @utility container-page {
   max-width: 1240px;
   margin-inline: auto;
-  padding-inline: var(--gutter);
+  padding-inline: max(var(--gutter), env(safe-area-inset-left)) max(var(--gutter), env(safe-area-inset-right));
   box-sizing: border-box;
 }
 
@@ -120,21 +121,22 @@ body {
   letter-spacing: -0.05em;
 }
 
-/* Hover lift + press, shared by every button-like control */
+/* Press feedback for every button-like control: a subtle iOS-style dip on touch, slow soft release. */
 @utility press {
   transition:
-    transform 0.25s var(--ease-spring),
-    filter 0.2s,
+    transform 0.4s var(--ease-spring),
+    filter 0.3s ease,
     background-color 0.3s,
     color 0.3s;
   @media (hover: hover) {
     &:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.1);
+      filter: brightness(1.06);
     }
   }
   &:active {
-    transform: scale(0.95);
+    transform: scale(0.97);
+    filter: brightness(0.94);
+    transition-duration: 0.12s, 0.12s, 0.3s, 0.3s;
   }
 }
 

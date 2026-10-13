@@ -123,6 +123,7 @@ export const projects: Project[] = [
     ],
     role: 'Frontend developer',
     tech: ['React Native', 'Node.js', 'Express', 'MongoDB', 'Google Gemini'],
+    link: 'https://github.com/abrown33914/neo-eden',
     cover: { color: '#3E5550', ink: '#E9EFEC', ring: 150, rx: -20, ry: 60, glow: '#3E6A60' },
   },
   {
@@ -139,6 +140,7 @@ export const projects: Project[] = [
     ],
     role: 'Configuration & documentation',
     tech: ['Red Hat Linux', 'BIND9', 'Apache', 'Bash', 'VirtualBox'],
+    link: 'https://github.com/abrown33914/linux-dns-webserver-config',
     cover: { color: '#4F5A3A', ink: '#F3EFE7', ring: 220, rx: 40, ry: -70, glow: '#5E6B42' },
   },
   {

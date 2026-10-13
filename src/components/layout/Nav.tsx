@@ -9,10 +9,10 @@ const pill =
   'fixed left-1/2 z-10 flex items-center rounded-full border border-text/8 p-[6px] transition-transform duration-[450ms] ease-[var(--ease-out-soft)]'
 
 const resumeBtn =
-  'press flex items-center whitespace-nowrap rounded-full bg-accent px-[18px] text-[14px] font-[650] tracking-[-0.01em] text-bg shadow-key active:scale-[.94]'
+  'press flex items-center whitespace-nowrap rounded-full bg-accent px-[18px] text-[14px] font-[650] tracking-[-0.01em] text-bg shadow-key'
 
 const abBtn =
-  'press grid place-items-center rounded-full bg-bone font-extrabold tracking-[-0.04em] text-bg active:scale-90'
+  'press grid place-items-center rounded-full bg-bone font-extrabold tracking-[-0.04em] text-bg'
 
 /** Floating top-center pill (desktop). */
 function TopNav({ hidden, active }: { hidden: boolean; active: string | null }) {
@@ -80,7 +80,7 @@ function BottomNav({ hidden, active }: { hidden: boolean; active: string | null 
           onClick={() => setMenu(true)}
           aria-expanded={menu}
           aria-controls="mobile-menu"
-          className="flex h-[46px] cursor-pointer items-center gap-[10px] rounded-full bg-transparent px-[18px] text-[14px] font-semibold text-text active:scale-[.94]"
+          className="flex h-[46px] cursor-pointer items-center gap-[10px] rounded-full bg-transparent px-[18px] text-[14px] font-semibold text-text active:scale-[.97]"
         >
           <span aria-hidden="true" className="flex flex-col gap-1">
             <span className="h-[2px] w-4 rounded-[1px] bg-text" />
@@ -96,7 +96,7 @@ function BottomNav({ hidden, active }: { hidden: boolean; active: string | null 
       <div
         aria-hidden="true"
         onClick={() => setMenu(false)}
-        className="fixed inset-0 z-20 bg-[rgba(5,6,8,.6)] transition-opacity duration-[350ms]"
+        className="fill-lv z-20 bg-[rgba(5,6,8,.6)] transition-opacity duration-[350ms]"
         style={{ opacity: menu ? 1 : 0, pointerEvents: menu ? 'auto' : 'none' }}
       />
       <div

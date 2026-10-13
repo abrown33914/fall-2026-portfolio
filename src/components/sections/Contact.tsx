@@ -4,7 +4,7 @@ import { cx } from '../../lib/accent'
 import { SectionShell } from '../ui/Reveal'
 
 const row =
-  'press flex h-[68px] w-full items-center justify-between rounded-[22px] text-text shadow-[inset_0_0_0_1px_rgba(230,224,214,.08)] active:scale-[.97]'
+  'press flex h-[68px] w-full items-center justify-between rounded-[22px] text-text shadow-[inset_0_0_0_1px_rgba(230,224,214,.08)]'
 
 function RowText({ label, value }: { label: string; value: string }) {
   return (
