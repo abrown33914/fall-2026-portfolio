@@ -41,7 +41,7 @@ function TopNav({ hidden, active }: { hidden: boolean; active: string | null }) 
           </a>
         )
       })}
-      <a href={site.resume} download className={cx(resumeBtn, 'ml-1 h-[42px]')}>
+      <a href={site.resume} download data-umami-event="resume-download" data-umami-event-from="nav" className={cx(resumeBtn, 'ml-1 h-[42px]')}>
         Résumé
       </a>
     </nav>
@@ -88,7 +88,7 @@ function BottomNav({ hidden, active }: { hidden: boolean; active: string | null 
           </span>
           Menu
         </button>
-        <a href={site.resume} download className={cx(resumeBtn, 'h-[46px]')}>
+        <a href={site.resume} download data-umami-event="resume-download" data-umami-event-from="mobile-nav" className={cx(resumeBtn, 'h-[46px]')}>
           Résumé
         </a>
       </nav>

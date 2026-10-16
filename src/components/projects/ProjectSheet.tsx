@@ -174,6 +174,8 @@ export function ProjectSheet({ projects, index, open, wide, onClose, onStep }: P
           {p.link && (
             <a
               href={p.link}
+              data-umami-event="project-link-click"
+              data-umami-event-project={p.slug}
               target="_blank"
               rel="noopener noreferrer"
               className="press mt-[26px] flex h-14 items-center justify-between gap-3 rounded-full bg-accent px-6 text-[15px] font-[650] tracking-[-0.01em] text-bg shadow-key"

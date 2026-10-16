@@ -6,6 +6,7 @@ import { CoverFlow, type CoverFlowHandle } from '../projects/CoverFlow'
 import { ProjectSheet } from '../projects/ProjectSheet'
 import { Button, IconButton } from '../ui/Button'
 import { useReveal } from '../../hooks/useReveal'
+import { track } from '../../lib/track'
 
 export function Projects() {
   const wide = useWide()
@@ -18,6 +19,7 @@ export function Projects() {
 
   const go = (i: number) => flow.current?.go(((i % n) + n) % n)
   const openAt = useCallback((i: number) => {
+    track('project-open', { project: projects[i].slug })
     setIdx(i)
     setOpen(true)
   }, [])

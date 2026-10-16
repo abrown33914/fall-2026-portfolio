@@ -142,7 +142,7 @@ export function Hero() {
 
       {/* Mobile résumé pill */}
       <div className="relative mb-4 flex justify-end md:hidden">
-        <Button href={site.resume} variant="ghost" size="sm" download>
+        <Button href={site.resume} variant="ghost" size="sm" download data-umami-event="resume-download" data-umami-event-from="hero">
           Résumé <span className="text-accent" aria-hidden="true">↓</span>
         </Button>
       </div>
@@ -154,8 +154,8 @@ export function Hero() {
             {site.lead}
           </p>
           <div className="mt-7 flex flex-wrap gap-[10px]">
-            <Button href="#projects">See projects</Button>
-            <Button href="#contact" variant="ghost" className="px-6">
+            <Button href="#projects" data-umami-event="see-projects">See projects</Button>
+            <Button href="#contact" variant="ghost" className="px-6" data-umami-event="hero-contact">
               Contact
             </Button>
           </div>
