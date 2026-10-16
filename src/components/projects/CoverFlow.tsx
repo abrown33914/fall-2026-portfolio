@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useImperativeHandle, useLayoutEffect, useRef, type KeyboardEvent, type MouseEvent, type Ref } from 'react'
+import { useCallback, useEffect, useImperativeHandle, useLayoutEffect, useRef, type CSSProperties, type KeyboardEvent, type MouseEvent, type Ref } from 'react'
 import type { Project } from '../../lib/types'
 import { useReducedMotion } from '../../hooks/media'
 import { CoverArt } from './CoverArt'
@@ -108,8 +108,8 @@ export function CoverFlow({ projects, cur, wide, onCurChange, onOpen, ref }: Pro
     <div className="relative mt-[14px]" style={{ height: g.stageH }}>
       <div
         aria-hidden="true"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] rounded-full opacity-50 blur-[70px] transition-[background-color] duration-[800ms]"
-        style={{ width: g.glow, height: g.glow, backgroundColor: p.cover.glow }}
+        className="glow-orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%]"
+        style={{ width: g.glow * 1.9, height: g.glow * 1.9, '--glow': p.cover.glow } as CSSProperties}
       />
 
       <div ref={stage} aria-hidden="true" className="pointer-events-none absolute inset-0 [perspective:1000px]">

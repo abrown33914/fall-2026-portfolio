@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type RefObject } from 'react'
 import { sections, site } from '../../content/site'
 import { useFocusTrap, useScrollLock } from '../../hooks/dialog'
 import { useWide } from '../../hooks/media'
@@ -15,6 +15,53 @@ const abBtn =
   'press grid place-items-center rounded-full bg-bone font-extrabold tracking-[-0.04em] text-bg'
 
 /** Floating top-center pill (desktop). */
+/** Drag the sheet down to dismiss it (follows the finger, then closes past a distance/velocity or springs back). */
+function useSwipeDown(ref: RefObject<HTMLElement | null>, enabled: boolean, onClose: () => void) {
+  const close = useRef(onClose)
+  useEffect(() => {
+    close.current = onClose
+  })
+  useEffect(() => {
+    const el = ref.current
+    if (!el || !enabled) return
+    let startY = 0
+    let startT = 0
+    let dy = 0
+    let dragging = false
+
+    const start = (e: TouchEvent) => {
+      startY = e.touches[0].clientY
+      startT = e.timeStamp
+      dy = 0
+      dragging = true
+      el.style.transition = 'none'
+    }
+    const move = (e: TouchEvent) => {
+      if (!dragging) return
+      dy = Math.max(0, e.touches[0].clientY - startY)
+      el.style.transform = `translateY(${dy}px)`
+    }
+    const end = (e: TouchEvent) => {
+      if (!dragging) return
+      dragging = false
+      el.style.transition = ''
+      const v = dy / Math.max(1, e.timeStamp - startT) // px per ms
+      if (dy > 70 || (dy > 24 && v > 0.5)) close.current()
+      else el.style.transform = 'translateY(0)'
+    }
+    el.addEventListener('touchstart', start, { passive: true })
+    el.addEventListener('touchmove', move, { passive: true })
+    el.addEventListener('touchend', end, { passive: true })
+    el.addEventListener('touchcancel', end, { passive: true })
+    return () => {
+      el.removeEventListener('touchstart', start)
+      el.removeEventListener('touchmove', move)
+      el.removeEventListener('touchend', end)
+      el.removeEventListener('touchcancel', end)
+    }
+  }, [ref, enabled])
+}
+
 function TopNav({ hidden, active }: { hidden: boolean; active: string | null }) {
   return (
     <nav
@@ -57,6 +104,7 @@ function BottomNav({ hidden, active }: { hidden: boolean; active: string | null 
 
   useFocusTrap(sheet, menu)
   useScrollLock(menu)
+  useSwipeDown(sheet, menu, () => setMenu(false))
 
   useEffect(() => {
     if (!menu) return
@@ -106,7 +154,7 @@ function BottomNav({ hidden, active }: { hidden: boolean; active: string | null 
         aria-modal="true"
         aria-label="Site sections"
         inert={!menu}
-        className="fixed right-[10px] bottom-[calc(10px+env(safe-area-inset-bottom))] left-[10px] z-21 rounded-[34px] bg-surface-2 px-[10px] pt-[10px] pb-3 shadow-[0_-10px_40px_rgba(0,0,0,.4)] transition-transform duration-500 ease-[cubic-bezier(.2,.9,.25,1)]"
+        className="fixed right-[10px] bottom-[calc(10px+env(safe-area-inset-bottom))] left-[10px] z-21 touch-none rounded-[34px] bg-surface-2 px-[10px] pt-[10px] pb-3 shadow-[0_-10px_40px_rgba(0,0,0,.4)] transition-transform duration-500 ease-[cubic-bezier(.2,.9,.25,1)]"
         style={{ transform: menu ? 'translateY(0)' : 'translateY(110%)' }}
       >
         <div aria-hidden="true" className="mx-auto mt-[2px] mb-2 h-[5px] w-10 rounded-[3px] bg-text/20" />

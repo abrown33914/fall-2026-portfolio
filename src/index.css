@@ -35,6 +35,28 @@
   --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* Registered so the project glow colour can ease between projects. */
+@property --glow {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #7a2a36;
+}
+
+/*
+ * Soft ambient glow behind the cover-flow: layered radial gradients, no blur() filter
+ * (a blurred box renders as a hard rectangle in Safari). Fades to fully transparent well inside its box.
+ */
+.glow-orb {
+  pointer-events: none;
+  opacity: 0.55;
+  transition: --glow 0.8s ease;
+  background:
+    radial-gradient(closest-side, var(--glow) 0%, transparent 100%),
+    radial-gradient(closest-side, var(--glow) 0%, transparent 62%);
+  -webkit-mask-image: radial-gradient(closest-side, #000 0%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 0%, transparent 100%);
+}
+
 @property --accent {
   syntax: '<color>';
   inherits: true;

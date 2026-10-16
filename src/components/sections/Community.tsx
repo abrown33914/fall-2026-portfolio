@@ -57,7 +57,7 @@ export function Community() {
                     alt={`${c.name} event`}
                     label={c.photoLabel}
                     color={c.color}
-                    className="mt-[14px] mb-[22px] h-[150px] rounded-[22px] md:h-[220px]"
+                    className="mt-[14px] mb-[22px] aspect-[10/3] w-full rounded-[22px]"
                     labelClassName="left-4 text-text/65"
                   />
                 </div>
