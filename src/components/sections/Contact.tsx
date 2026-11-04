@@ -338,7 +338,7 @@ export function Contact() {
       intro={
         <>
           <p className="mt-3 mb-0 max-w-[36ch] text-[16.5px] leading-normal text-text-3">
-            Seeking internships and new graduate opportunities beginning Summer 2027. Drop me a note — I read every message.
+            Seeking internships and new graduate opportunities beginning Summer 2027. Say hi!
           </p>
           <FindMe />
         </>
