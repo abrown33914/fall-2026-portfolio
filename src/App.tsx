@@ -34,10 +34,17 @@ export default function App() {
         <Contact />
       </main>
 
-      <footer className="container-page relative z-[1] flex justify-between pb-[130px] text-[13px] text-muted-2 md:pb-12">
+      <footer className="container-page relative z-[1] flex items-center justify-between gap-4 pb-[130px] text-[13px] text-muted-2 md:pb-12">
         <span>
           © {YEAR} {site.fullName}
         </span>
+        <a
+          href="#top"
+          data-umami-event="back-to-top"
+          className="press inline-flex min-h-[44px] items-center gap-2 rounded-full border border-hairline bg-fill-soft px-4 font-semibold text-text"
+        >
+          Back to top <span aria-hidden="true" className="text-accent">↑</span>
+        </a>
       </footer>
 
       <Nav />
